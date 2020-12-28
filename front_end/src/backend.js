@@ -5,9 +5,14 @@ const instance = axios.create({
   timeout: 1000
 });
 
-// Make a request for a user with a given ID
 function exec_commands(){
-  instance.get('todos/1')
+  instance.post('exec_commands', {
+    host: "RTA",
+    commands: [
+      "command1",
+      "command2"
+    ]
+  })
   .then(function (response) {
     // handle success
     console.log(response);

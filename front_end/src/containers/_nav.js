@@ -16,7 +16,7 @@ const _nav =  [
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'rip协议配置',
+    name: 'RIP协议配置',
     to: '/rip-config',
     icon: 'cil-settings'
   },

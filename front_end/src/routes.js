@@ -91,7 +91,7 @@ const routes = [
 
   { path: '/topology', exact: true, name: '实验拓扑图', component: Topology },
   { path: '/connectivity', exact: true, name: '测试连通性', component: Connectivity },
-  { path: '/rip-config', exact: true, name: 'rip协议配置', component: RipConfig },
+  { path: '/rip-config', exact: true, name: 'RIP协议配置', component: RipConfig },
   { path: '/access-control', exact: true, name: '访问控制', component: AccessControl }
 ];
 
