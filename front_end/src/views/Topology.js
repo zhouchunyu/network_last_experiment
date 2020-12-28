@@ -1,40 +1,18 @@
 import React from 'react'
 import {
-  CBreadcrumb,
-  CBreadcrumbItem,
-  CBreadcrumbRouter,
   CCard,
   CCardBody,
   CCardHeader,
-  CLink,
   CCol,
   CRow
 } from '@coreui/react'
-
-import {
-  CBadge,
-  CCardFooter,
-  CCollapse,
-  CFade,
-  CSwitch
-} from  '@coreui/react'
-
-import { DocsLink } from 'src/reusable'
-import routes from '../routes'
-
-import CIcon from '@coreui/icons-react'
-
 import {exec_commands} from '../backend.js'
-
-function hello(){
-  exec_commands()
-}
 
 const Topology = () => {
   return (
     <CRow>
       <CCol xs="12">
-        <CCard onClick={hello}>
+        <CCard>
           <CCardHeader>
             <h3>基于web的网络拓扑搭建及校验的自动化(ACL主题)</h3> 
           </CCardHeader>

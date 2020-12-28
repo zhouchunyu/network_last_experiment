@@ -16,10 +16,16 @@ const _nav =  [
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'RIP协议配置',
-    to: '/rip-config',
-    icon: 'cil-settings'
+    name: '查看路由表',
+    to: '/router-table',
+    icon: 'cil-drop'
   },
+  // {
+  //   _tag: 'CSidebarNavItem',
+  //   name: '配置RIP',
+  //   to: '/rip-config',
+  //   icon: 'cil-settings'
+  // },
   {
     _tag: 'CSidebarNavItem',
     name: '访问控制',

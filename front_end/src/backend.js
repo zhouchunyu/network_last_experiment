@@ -1,17 +1,14 @@
 const axios = require('axios').default;
 
 const instance = axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com/',
+  baseURL: 'https://localhost:8080/',
   timeout: 1000
 });
 
-function exec_commands(){
+function exec_commands(router_name, commands){
   instance.post('exec_commands', {
-    host: "RTA",
-    commands: [
-      "command1",
-      "command2"
-    ]
+    router_name: router_name,
+    commands: commands
   })
   .then(function (response) {
     // handle success

@@ -40,10 +40,9 @@ const User = React.lazy(() => import('./views/users/User'));
 
 const Topology = React.lazy(() => import('./views/Topology'));
 const Connectivity = React.lazy(() => import('./views/Connectivity'));
-
 const RipConfig = React.lazy(() => import('./views/RipConfig'));
-
 const AccessControl = React.lazy(() => import('./views/AccessControl'));
+const RouterTable = React.lazy(() => import('./views/RouterTable'));
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -91,7 +90,8 @@ const routes = [
 
   { path: '/topology', exact: true, name: '实验拓扑图', component: Topology },
   { path: '/connectivity', exact: true, name: '测试连通性', component: Connectivity },
-  { path: '/rip-config', exact: true, name: 'RIP协议配置', component: RipConfig },
+  { path: '/router-table', exact: true, name: '查看路由表', component: RouterTable },
+  { path: '/rip-config', exact: true, name: '配置RIP', component: RipConfig },
   { path: '/access-control', exact: true, name: '访问控制', component: AccessControl }
 ];
 
