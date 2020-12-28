@@ -26,3 +26,22 @@ def removeACLAction():
     ]
     RTB = TelnetTool(RouterHost['RTB'], 'Router', 'CISCO', 'CISCO')
     RTB.telnet_on(commandList)
+
+#测试连通性
+def pingAction():
+    commandList = [
+        'ping 192.168.2.2',
+    ]
+    RTB = TelnetTool(RouterHost['RTB'], 'Router', 'CISCO', 'CISCO')
+    result = RTB.telnet_on(commandList)
+    return result
+
+#显示路由表
+def showAction():
+    commandList = [
+        'clear ip route *',
+        'show ip route'
+    ]
+    RTB = TelnetTool(RouterHost['RTC'], 'Router', 'CISCO', 'CISCO')
+    result = RTB.telnet_on(commandList)
+    return result

@@ -38,6 +38,29 @@ def removeACL():
         return jsonify({'result': '程序出现异常，请查看后台运行情况'})
     return jsonify({'result': '解除访问控制完成！'})
 
+#测试连通性
+@app.route('/api/ping', methods=["POST"])
+def removeACL():
+    # params = request.get_json(silent=True)
+    # print(params)
+    # param = params['param']
+    try:
+        result = pingAction()
+    except:
+        return jsonify({'result': '程序出现异常，请查看后台运行情况'})
+    return jsonify({'result': result})
+
+#显示路由表
+@app.route('/api/show', methods=["POST"])
+def removeACL():
+    # params = request.get_json(silent=True)
+    # print(params)
+    # param = params['param']
+    try:
+        result = showAction()
+    except:
+        return jsonify({'result': '程序出现异常，请查看后台运行情况'})
+    return jsonify({'result': result})
 
 if __name__ == '__main__':
     app.run()
