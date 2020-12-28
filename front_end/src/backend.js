@@ -1,13 +1,13 @@
 const axios = require('axios').default;
 
 const instance = axios.create({
-  baseURL: 'https://localhost:8080/',
+  baseURL: 'http://127.0.0.1:5000/',
   timeout: 1000
 });
 
 function exec_commands(router_name, commands){
   instance.post('exec_commands', {
-    router_name: router_name,
+    host: router_name,
     commands: commands
   })
   .then(function (response) {
