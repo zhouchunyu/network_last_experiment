@@ -38,6 +38,13 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'));
 const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
 
+const Topology = React.lazy(() => import('./views/Topology'));
+const Connectivity = React.lazy(() => import('./views/Connectivity'));
+
+const RipConfig = React.lazy(() => import('./views/RipConfig'));
+
+const AccessControl = React.lazy(() => import('./views/AccessControl'));
+
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
@@ -78,7 +85,14 @@ const routes = [
   { path: '/notifications/toaster', name: 'Toaster', component: Toaster },
   { path: '/widgets', name: 'Widgets', component: Widgets },
   { path: '/users', exact: true,  name: 'Users', component: Users },
-  { path: '/users/:id', exact: true, name: 'User Details', component: User }
+  { path: '/users/:id', exact: true, name: 'User Details', component: User },
+
+
+
+  { path: '/topology', exact: true, name: '实验拓扑图', component: Topology },
+  { path: '/connectivity', exact: true, name: '测试连通性', component: Connectivity },
+  { path: '/rip-config', exact: true, name: 'rip协议配置', component: RipConfig },
+  { path: '/access-control', exact: true, name: '访问控制', component: AccessControl }
 ];
 
 export default routes;
