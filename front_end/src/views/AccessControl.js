@@ -80,7 +80,7 @@ class AccessControl extends React.Component {
             </CForm>
           </CCardBody>
           <CCardFooter>
-            <CButton type="submit" size="sm" color="primary"><CIcon name="cil-scrubber" /> Submit</CButton>
+            <CButton type="submit" size="sm" color="primary"><CIcon name="cil-scrubber" onClick={this.deny.bind(this)} /> Submit</CButton>
             <CButton type="reset" size="sm" color="danger" onClick={this.up_reset.bind(this)}><CIcon name="cil-ban" /> Reset</CButton>
           </CCardFooter>
         </CCard>
@@ -112,7 +112,7 @@ class AccessControl extends React.Component {
             </CForm>
           </CCardBody>
           <CCardFooter>
-            <CButton type="submit" size="sm" color="primary"><CIcon name="cil-scrubber" /> Submit</CButton>
+            <CButton type="submit" size="sm" color="primary" onClick={this.undo_deny.bind(this)}><CIcon name="cil-scrubber" /> Submit</CButton>
             <CButton type="reset" size="sm" color="danger"  onClick={this.down_reset.bind(this)}><CIcon name="cil-ban" /> Reset</CButton>
           </CCardFooter>
         </CCard>
