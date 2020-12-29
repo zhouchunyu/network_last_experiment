@@ -35,7 +35,7 @@ const TheContent = () => {
                   )} />
               )
             })}
-            <Redirect from="/" to="/dashboard" />
+            <Redirect from="/" to="/topology" />
           </Switch>
         </Suspense>
       </CContainer>
