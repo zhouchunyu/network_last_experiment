@@ -20,16 +20,16 @@ class RouterTable extends React.Component
 
 
   componentDidMount = () => {
-    axios.post('http://localhost:5000/exec_commands', {
+    axios.post('http://localhost:5000/exec_commands/exec_commands', {
       host: "RTB",
       commands: ["clear ip route *", "show ip route"]
     })
     .then((response) => {
       // handle success
-      console.log(response.data.code);
       this.setState({
         rtb_output: response.data.code
       });
+      console.log(this.state.rtb_output);
     })
     .catch((error) => {
       // handle error
@@ -37,7 +37,7 @@ class RouterTable extends React.Component
     });
     //https://5feb1c81573752001730a4b9.mockapi.io/
     //http://localhost:5000/exec_commands
-    axios.post('http://localhost:5000/exec_commands', {
+    axios.post('http://localhost:5000/exec_commands/exec_commands', {
       host: "RTC",
       commands: ["clear ip route *", "show ip route"]
     })
@@ -70,7 +70,9 @@ class RouterTable extends React.Component
                   路由表B
                 </CCardHeader>
                 <CCardBody>
-                  {this.state.rtb_output}
+                  <ul>
+                    {this.state.rtb_output? this.state.rtb_output.map((line, i) => <li key={i}>{line}</li>) : ""}
+                  </ul>
                 </CCardBody>
               </CCard>
               </CCol>
@@ -80,7 +82,7 @@ class RouterTable extends React.Component
                   路由表C
                 </CCardHeader>
                 <CCardBody>
-                  {this.state.rtc_output}
+                  {this.state.rtc_output? this.state.rtc_output.map((line, i)=> <li key={i}>{line}</li>) : ""}
                 </CCardBody>
               </CCard>
               </CCol>

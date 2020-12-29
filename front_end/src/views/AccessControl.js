@@ -112,8 +112,13 @@ class AccessControl extends React.Component {
           </CCardFooter>
         </CCard>
         <CCard>
+        <CCardHeader>
+          显示结果:
+        </CCardHeader>
         <CCardBody>
-          显示结果: {this.state.deny_output}
+          <ul>
+            {this.state.deny_output? this.state.rtb_output.map((line, i) => <li key={i}>{line}</li>) : ""}
+          </ul>
         </CCardBody>
         </CCard>
 
@@ -149,8 +154,13 @@ class AccessControl extends React.Component {
           </CCardFooter>
         </CCard>
         <CCard>
+        <CCardHeader>
+          显示结果:
+        </CCardHeader>
         <CCardBody>
-          显示结果: {this.state.no_deny_output}
+          <ul>
+            {this.state.no_deny_output? this.state.rtb_output.map((line, i) => <li key={i}>{line}</li>) : ""}
+          </ul>
         </CCardBody>
         </CCard>
         </CCol>

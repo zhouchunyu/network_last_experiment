@@ -87,8 +87,13 @@ class Connectivity extends React.Component{
           </CCardFooter>
         </CCard>
         <CCard>
+        <CCardHeader>
+          显示结果:
+        </CCardHeader>
         <CCardBody>
-          显示结果: {this.state.output}
+          <ul>
+            {this.state.output? this.state.rtb_output.map((line, i) => <li key={i}>{line}</li>) : ""}
+          </ul>
         </CCardBody>
         </CCard>
         </CCol>
