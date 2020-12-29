@@ -20,7 +20,7 @@ class RouterTable extends React.Component
 
 
   componentDidMount = () => {
-    axios.post('http://localhost:5000/exec_commands/exec_commands', {
+    axios.post('http://localhost:5000/exec_commands', {
       host: "RTB",
       commands: ["clear ip route *", "show ip route"]
     })
@@ -37,7 +37,7 @@ class RouterTable extends React.Component
     });
     //https://5feb1c81573752001730a4b9.mockapi.io/
     //http://localhost:5000/exec_commands
-    axios.post('http://localhost:5000/exec_commands/exec_commands', {
+    axios.post('http://localhost:5000/exec_commands', {
       host: "RTC",
       commands: ["clear ip route *", "show ip route"]
     })
