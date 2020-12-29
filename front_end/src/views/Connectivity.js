@@ -14,19 +14,34 @@ import {
   CLabel
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react';
-import {exec_commands} from '../backend.js';
+import axios from 'axios';
 
 class Connectivity extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       router_name : "",
-      ip_address : ""
+      ip_address : "",
+      output: ""
     }
   }
 
   ping(){
-    exec_commands(document.getElementById("hf-router").value, [`ping ${document.getElementById("hf-ip-address").value}`]);
+    axios.post('http://localhost:5000/exec_commands', {
+      host: document.getElementById("hf-router").value,
+      commands: [`ping ${document.getElementById("hf-ip-address").value}`]
+    })
+    .then((response) => {
+      // handle success
+      console.log(response.data.code);
+      this.setState({
+        output: response.data.code
+      });
+    })
+    .catch((error) => {
+      // handle error
+      console.log(error);
+    });
   }
 
   reset(){
@@ -73,7 +88,7 @@ class Connectivity extends React.Component{
         </CCard>
         <CCard>
         <CCardBody>
-          显示结果:
+          显示结果: {this.state.output}
         </CCardBody>
         </CCard>
         </CCol>

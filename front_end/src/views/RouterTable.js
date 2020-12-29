@@ -13,8 +13,8 @@ class RouterTable extends React.Component
   constructor(props){
     super(props);
     this.state = {
-      rtb_code: "",
-      rtc_code: ""
+      rtb_output: "",
+      rtc_output: ""
     }
   }
 
@@ -28,7 +28,7 @@ class RouterTable extends React.Component
       // handle success
       console.log(response.data.code);
       this.setState({
-        rtb_code: response.data.code
+        rtb_output: response.data.code
       });
     })
     .catch((error) => {
@@ -45,7 +45,7 @@ class RouterTable extends React.Component
       // handle success
       console.log(response.data.code);
       this.setState({
-        rtc_code: response.data.code
+        rtc_output: response.data.code
       });
     })
     .catch((error) => {
@@ -70,7 +70,7 @@ class RouterTable extends React.Component
                   路由表B
                 </CCardHeader>
                 <CCardBody>
-                  {this.state.rtb_code}
+                  {this.state.rtb_output}
                 </CCardBody>
               </CCard>
               </CCol>
@@ -80,7 +80,7 @@ class RouterTable extends React.Component
                   路由表C
                 </CCardHeader>
                 <CCardBody>
-                  {this.state.rtc_code}
+                  {this.state.rtc_output}
                 </CCardBody>
               </CCard>
               </CCol>

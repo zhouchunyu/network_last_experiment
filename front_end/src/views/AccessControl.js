@@ -14,24 +14,54 @@ import {
   CLabel
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import {exec_commands} from '../backend.js';
-
+import axios from 'axios';
+//https://5feb1c81573752001730a4b9.mockapi.io/
 class AccessControl extends React.Component {
 
   constructor(props){
     super(props);
+    this.state = {
+      deny_output: "",
+      no_deny_output: ""
+    }
   }
 
   deny(){
     let router_name = document.getElementById("hf-up-router").value;
     let commands = ["config terminal", `access-list 1 deny ${document.getElementById("hf-up-network").value}`, "access-list 1 permit any", "router rip", "distribute-list 1 out"];
-    exec_commands(router_name, commands);
+    axios.post('http://localhost:5000/exec_commands', {
+      host: router_name,
+      commands: commands
+    })
+    .then((response) => {
+      // handle success
+      this.setState({
+        deny_output: response.data.code
+      });
+    })
+    .catch((error) => {
+      // handle error
+      console.log(error);
+    });
   }
 
   undo_deny(){
     let router_name = document.getElementById("hf-down-router").value;
     let commands = ["config terminal", `no access-list 1 deny ${document.getElementById("hf-down-network").value}`];
-    exec_commands(router_name, commands);
+    axios.post('http://localhost:5000/exec_commands', {
+      host: router_name,
+      commands: commands
+    })
+    .then((response) => {
+      // handle success
+      this.setState({
+        no_deny_output: response.data.code
+      });
+    })
+    .catch((error) => {
+      // handle error
+      console.log(error);
+    });
   }
 
   up_reset(){
@@ -44,9 +74,6 @@ class AccessControl extends React.Component {
     document.getElementById("hf-down-network").value = "";
   }
   
-  
-
-
 
   render(){
     return (
@@ -80,9 +107,14 @@ class AccessControl extends React.Component {
             </CForm>
           </CCardBody>
           <CCardFooter>
-            <CButton type="submit" size="sm" color="primary"><CIcon name="cil-scrubber" onClick={this.deny.bind(this)} /> Submit</CButton>
+            <CButton type="submit" size="sm" color="primary" onClick={this.deny.bind(this)}><CIcon name="cil-scrubber"/> Submit</CButton>
             <CButton type="reset" size="sm" color="danger" onClick={this.up_reset.bind(this)}><CIcon name="cil-ban" /> Reset</CButton>
           </CCardFooter>
+        </CCard>
+        <CCard>
+        <CCardBody>
+          显示结果: {this.state.deny_output}
+        </CCardBody>
         </CCard>
 
         <CCard>
@@ -116,7 +148,11 @@ class AccessControl extends React.Component {
             <CButton type="reset" size="sm" color="danger"  onClick={this.down_reset.bind(this)}><CIcon name="cil-ban" /> Reset</CButton>
           </CCardFooter>
         </CCard>
-
+        <CCard>
+        <CCardBody>
+          显示结果: {this.state.no_deny_output}
+        </CCardBody>
+        </CCard>
         </CCol>
       </CRow>
     )
