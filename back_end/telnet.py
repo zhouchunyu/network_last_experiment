@@ -35,6 +35,7 @@ class TelnetTool:
             # print('write one--------------------')
             # 获取返回结果
             command_result = tn.read_very_eager().decode("ascii")
+            # print(command_result)
 
         # 打印
         # print(command_result)

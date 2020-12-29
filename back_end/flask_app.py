@@ -13,10 +13,10 @@ def exec_commands():
     routerName = params['host']
     commandList = params['commands']
     try:
-        execCommandAction(routerName, commandList)
+        code = execCommandAction(routerName, commandList)
+        return jsonify({'result': '访问控制设置完成！', 'code': code})
     except:
-        return jsonify({'result': '程序出现异常，请查看后台运行情况'})
-    return jsonify({'result': '访问控制设置完成！'})
+        return jsonify({'result': '程序出现异常，请查看后台运行情况', 'code': ''})
 
 # 设置访问控制接口
 # @app.route('/api/setACL', methods=["POST"])
