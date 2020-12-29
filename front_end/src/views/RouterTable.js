@@ -16,8 +16,8 @@ import {
 import {exec_commands} from '../backend.js';
 
 const RouterTable = () => {
-  exec_commands("RTB", ["show ip route"]);
-  exec_commands("RTC", ["show ip route"]);
+  exec_commands("RTB", ["clear ip route *", "show ip route"]);
+  exec_commands("RTC", ["clear ip route *", "show ip route"]);
   return (
     <CRow>
       <CCol xs="12">

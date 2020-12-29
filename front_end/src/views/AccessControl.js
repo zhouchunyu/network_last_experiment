@@ -24,13 +24,13 @@ class AccessControl extends React.Component {
 
   deny(){
     let router_name = document.getElementById("hf-up-router").value;
-    let commands = [`access-list 1 deny ${document.getElementById("hf-up-network").value}`, "access-list 1 permit any", "router rip", "distribute-list 1 out"];
+    let commands = ["config terminal", `access-list 1 deny ${document.getElementById("hf-up-network").value}`, "access-list 1 permit any", "router rip", "distribute-list 1 out"];
     exec_commands(router_name, commands);
   }
 
   undo_deny(){
     let router_name = document.getElementById("hf-down-router").value;
-    let commands = ["config terminal", "no access-list 1 deny 192.168.254.0"];
+    let commands = ["config terminal", `no access-list 1 deny ${document.getElementById("hf-down-network").value}`];
     exec_commands(router_name, commands);
   }
 
