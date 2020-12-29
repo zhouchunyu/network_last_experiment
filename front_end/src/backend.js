@@ -6,7 +6,8 @@ const instance = axios.create({
 });
 
 function exec_commands(router_name, commands){
-  let data = {};
+  return "hello, world";
+  let code = {};
   instance.post('exec_commands', {
     host: router_name,
     commands: commands
@@ -14,7 +15,7 @@ function exec_commands(router_name, commands){
   .then(function (response) {
     // handle success
     console.log(response);
-    data = response.data;
+    code = response.data.code;
   })
   .catch(function (error) {
     // handle error
@@ -23,7 +24,7 @@ function exec_commands(router_name, commands){
   .then(function () {
     // always executed
   });
-  return data;
+  return code;
 }
 
 export { exec_commands }
