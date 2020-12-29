@@ -13,9 +13,11 @@ import {
   CInput,
   CLabel
 } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
+import {exec_commands} from '../backend.js';
 
 const RouterTable = () => {
+  exec_commands("RTB", ["show ip route"]);
+  exec_commands("RTC", ["show ip route"]);
   return (
     <CRow>
       <CCol xs="12">

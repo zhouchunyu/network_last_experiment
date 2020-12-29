@@ -12,13 +12,13 @@ const _nav =  [
     _tag: 'CSidebarNavItem',
     name: '测试连通性',
     to: '/connectivity',
-    icon: 'cil-drop'
+    icon: 'cil-arrow-right'
   },
   {
     _tag: 'CSidebarNavItem',
     name: '查看路由表',
     to: '/router-table',
-    icon: 'cil-drop'
+    icon: 'cil-spreadsheet'
   },
   // {
   //   _tag: 'CSidebarNavItem',
