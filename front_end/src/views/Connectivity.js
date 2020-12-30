@@ -92,7 +92,7 @@ class Connectivity extends React.Component{
         </CCardHeader>
         <CCardBody>
           <ul>
-            {this.state.output? this.state.rtb_output.map((line, i) => <li key={i}>{line}</li>) : ""}
+            {this.state.output? this.state.output.map((line, i) => <li key={i}>{line}</li>) : ""}
           </ul>
         </CCardBody>
         </CCard>
