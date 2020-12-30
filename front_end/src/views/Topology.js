@@ -6,7 +6,6 @@ import {
   CCol,
   CRow
 } from '@coreui/react'
-import {exec_commands} from '../backend.js'
 
 const Topology = () => {
   return (
@@ -18,7 +17,7 @@ const Topology = () => {
           </CCardHeader>
           <CCardBody>
             <h5>实验拓扑图:</h5>
-            <img src="images/topology.jpg"  class="img-fluid"></img>
+            <img src="images/topology.jpg" style={{"maxWidth": "80%"}} ></img>
             <br></br>
             <h5>网络拓扑描述:</h5>
             此网络拓扑中试验用局域网192.168.254.0/24仅对192.168.3.0/24网段的用户开放访问，其余网段无法访问该局域网。因此，需在路由器RTB上设置访问控制列表，以限制试验用局域网的访问权限。

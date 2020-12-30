@@ -5,8 +5,9 @@ import {
   CCardHeader,
   CCol,
   CRow
-} from '@coreui/react'
-import axios from 'axios';
+} from '@coreui/react';
+
+import {instance} from '../backend.js';
 
 class RouterTable extends React.Component
 {
@@ -20,7 +21,7 @@ class RouterTable extends React.Component
 
 
   componentDidMount = () => {
-    axios.post('http://localhost:5000/exec_commands', {
+    instance.post('exec_commands', {
       host: "RTB",
       commands: ["clear ip route *", "show ip route"]
     })
@@ -35,9 +36,7 @@ class RouterTable extends React.Component
       // handle error
       console.log(error);
     });
-    //https://5feb1c81573752001730a4b9.mockapi.io/
-    //http://localhost:5000/exec_commands
-    axios.post('http://localhost:5000/exec_commands', {
+    instance.post('exec_commands', {
       host: "RTC",
       commands: ["clear ip route *", "show ip route"]
     })
@@ -67,7 +66,7 @@ class RouterTable extends React.Component
               <CCol xs="6">
               <CCard>
                 <CCardHeader>
-                  路由表B
+                  Router B
                 </CCardHeader>
                 <CCardBody>
                   <ul>
@@ -79,10 +78,12 @@ class RouterTable extends React.Component
               <CCol xs="6">
               <CCard>
                 <CCardHeader>
-                  路由表C
+                  Router C
                 </CCardHeader>
                 <CCardBody>
+                  <ul>
                   {this.state.rtc_output? this.state.rtc_output.map((line, i)=> <li key={i}>{line}</li>) : ""}
+                  </ul>
                 </CCardBody>
               </CCard>
               </CCol>

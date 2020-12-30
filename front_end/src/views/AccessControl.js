@@ -14,8 +14,8 @@ import {
   CLabel
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import axios from 'axios';
-//https://5feb1c81573752001730a4b9.mockapi.io/
+import {instance} from '../backend.js';
+
 class AccessControl extends React.Component {
 
   constructor(props){
@@ -29,7 +29,7 @@ class AccessControl extends React.Component {
   deny(){
     let router_name = document.getElementById("hf-up-router").value;
     let commands = ["config terminal", `access-list 1 deny ${document.getElementById("hf-up-network").value}`, "access-list 1 permit any", "router rip", "distribute-list 1 out"];
-    axios.post('http://localhost:5000/exec_commands', {
+    instance.post('exec_commands', {
       host: router_name,
       commands: commands
     })
@@ -48,7 +48,7 @@ class AccessControl extends React.Component {
   undo_deny(){
     let router_name = document.getElementById("hf-down-router").value;
     let commands = ["config terminal", `no access-list 1 deny ${document.getElementById("hf-down-network").value}`];
-    axios.post('http://localhost:5000/exec_commands', {
+    instance.post('exec_commands', {
       host: router_name,
       commands: commands
     })
@@ -107,8 +107,8 @@ class AccessControl extends React.Component {
             </CForm>
           </CCardBody>
           <CCardFooter>
-            <CButton type="submit" size="sm" color="primary" onClick={this.deny.bind(this)}><CIcon name="cil-scrubber"/> Submit</CButton>
-            <CButton type="reset" size="sm" color="danger" onClick={this.up_reset.bind(this)}><CIcon name="cil-ban" /> Reset</CButton>
+            <CButton type="submit" size="sm" color="primary" onClick={this.deny.bind(this)}><CIcon name="cil-scrubber"/> 提交</CButton>
+            <CButton type="reset" size="sm" color="danger" onClick={this.up_reset.bind(this)}><CIcon name="cil-ban" /> 重置</CButton>
           </CCardFooter>
         </CCard>
         <CCard>
@@ -149,8 +149,8 @@ class AccessControl extends React.Component {
             </CForm>
           </CCardBody>
           <CCardFooter>
-            <CButton type="submit" size="sm" color="primary" onClick={this.undo_deny.bind(this)}><CIcon name="cil-scrubber" /> Submit</CButton>
-            <CButton type="reset" size="sm" color="danger"  onClick={this.down_reset.bind(this)}><CIcon name="cil-ban" /> Reset</CButton>
+            <CButton type="submit" size="sm" color="primary" onClick={this.undo_deny.bind(this)}><CIcon name="cil-scrubber" /> 提交</CButton>
+            <CButton type="reset" size="sm" color="danger"  onClick={this.down_reset.bind(this)}><CIcon name="cil-ban" /> 重置</CButton>
           </CCardFooter>
         </CCard>
         <CCard>

@@ -14,7 +14,7 @@ import {
   CLabel
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react';
-import axios from 'axios';
+import {instance} from '../backend.js';
 
 class Connectivity extends React.Component{
   constructor(props){
@@ -27,7 +27,7 @@ class Connectivity extends React.Component{
   }
 
   ping(){
-    axios.post('http://localhost:5000/exec_commands', {
+    instance.post('exec_commands', {
       host: document.getElementById("hf-router").value,
       commands: [`ping ${document.getElementById("hf-ip-address").value}`]
     })
