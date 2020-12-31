@@ -59,7 +59,7 @@ class RouterTable extends React.Component
         <CCol xs="12">
         <CCard>
           <CCardHeader>
-            查看路由表
+          <h5>查看路由表</h5>
           </CCardHeader>
           <CCardBody>
             <CRow>

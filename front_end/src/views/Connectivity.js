@@ -56,7 +56,7 @@ class Connectivity extends React.Component{
         <CCol xs="12">
         <CCard>
           <CCardHeader>
-            测试连通性
+            <h5>测试连通性</h5>
           </CCardHeader>
           <CCardBody>
             <CForm action="" method="post" className="form-horizontal">

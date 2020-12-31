@@ -81,7 +81,7 @@ class AccessControl extends React.Component {
         <CCol xs="12">
         <CCard>
           <CCardHeader>
-            设置访问控制
+          <h5>设置访问控制</h5>
           </CCardHeader>
           <CCardBody>
             <CForm action="" method="post" className="form-horizontal">
@@ -124,7 +124,8 @@ class AccessControl extends React.Component {
 
         <CCard>
           <CCardHeader>
-            撤销访问控制
+          <h5>撤销访问控制</h5>
+            
           </CCardHeader>
           <CCardBody>
             <CForm action="" method="post" className="form-horizontal">
